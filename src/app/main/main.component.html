@@ -1,0 +1,25 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <div class="m-2 p-2 text-center h3 text-danger">3-D</div>
+
+    <nb-actions>
+      <nb-action icon="home-outline" [routerLink]="['/app/home']"></nb-action>
+      <nb-action
+        icon="log-in-outline"
+        [routerLink]="['/app/signin']"
+      ></nb-action>
+      <nb-action
+        icon="person-add-outline"
+        [routerLink]="['/app/signup']"
+      ></nb-action>
+    </nb-actions>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <!-- Insert footer here -->
+  </nb-layout-footer>
+</nb-layout>

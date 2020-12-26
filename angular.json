@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Three-D"
+    }
+  },
+  "defaultProject": "Three-D",
+  "cli": {
+    "analytics": "a17a5d3b-f6b4-4482-bae2-1b34d59e49b7"
+  }
 }
