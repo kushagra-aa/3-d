@@ -27,7 +27,9 @@
               "./node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/OrbitControls.js"
+            ]
           },
           "configurations": {
             "production": {

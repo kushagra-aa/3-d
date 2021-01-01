@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbIconModule, NbToggleModule, NbButtonModule, NbCardModule, NbInputModule, NbFormFieldModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { RenderComponent } from './render/render.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     MainComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RenderComponent
   ],
   imports: [
     BrowserModule,
