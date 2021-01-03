@@ -1,5 +1,6 @@
 <nb-card-header>Signup</nb-card-header>
 <nb-card-body class="example-items-col p-3">
+  <!-- <form [formGroup]="registerform" class="mt-5" (ngSubmit)="userSubmit()"> -->
   <nb-form-field class="p-2">
     <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
     <input
@@ -49,7 +50,9 @@
     hero
     status="success"
     value="Signup"
+    (click)="userSubmit()"
   />
+  <!-- </form> -->
 </nb-card-body>
 <nb-card-footer>
   <button
@@ -58,6 +61,6 @@
     status="control"
     [routerLink]="['/app/signin']"
   >
-    Already a member!
+    Already a member?
   </button>
 </nb-card-footer>
