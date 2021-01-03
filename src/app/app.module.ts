@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbIconModule, NbToggleModule, NbButtonModule, NbCardModule, NbInputModule, NbFormFieldModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbButtonModule,
     NbCardModule,
     NbInputModule,
-    NbFormFieldModule
+    NbFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
