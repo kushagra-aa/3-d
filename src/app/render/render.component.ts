@@ -7,6 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RenderComponent implements OnInit {
 
+  models = [
+    {
+      name: 'Birch Tree',
+      uri: 'assets/birchtree/scene.gltf',
+      image: 'assets/birchtree/image.jpg'
+    },
+    {
+      name: 'Datsun',
+      uri: 'assets/datsun_y/scene.gltf',
+      image: 'assets/datsun_y/image.jpg'
+    },
+    {
+      name: 'Mountain',
+      uri: 'assets/mountain/scene.gltf',
+      image: 'assets/mountain/image.jpg'
+    },
+    {
+      name: 'Birch Tree',
+      uri: 'assets/birchtree/scene.gltf',
+      image: 'assets/birchtree/image.jpg'
+    },
+    {
+      name: 'Birch Tree',
+      uri: 'assets/birchtree/scene.gltf',
+      image: 'assets/birchtree/image.jpg'
+    },
+  ]
 
   scene;
   camera;
@@ -18,12 +45,11 @@ export class RenderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.InitRender();
-    this.main();
+    this.selectModel(0);
   }
 
-  main() {
-    const canvas = document.querySelector('#here');
+  main(uri) {
+    const canvas = document.querySelector(`#here`);
     const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     // renderer.setClearColor (0x333333, 1);
     const camera = new THREE.PerspectiveCamera(this.fov, this.aspect, this.near, this.far);
@@ -40,7 +66,7 @@ export class RenderComponent implements OnInit {
       const planeSize = 40;
 
       const loader = new THREE.TextureLoader();
-      const texture = loader.load('assets/back.jpg');
+      const texture = loader.load('assets/birchtree/image.jpg');
       texture.wrapS = THREE.RepeatWrapping;
       texture.wrapT = THREE.RepeatWrapping;
       texture.magFilter = THREE.NearestFilter;
@@ -56,23 +82,6 @@ export class RenderComponent implements OnInit {
       mesh.rotation.x = Math.PI * -.5;
       // scene.add(mesh);
     }
-
-    // {
-    //   const skyColor = 0xB1E1FF;  // light blue
-    //   const groundColor = 0xB97A20;  // brownish orange
-    //   const intensity = 2;
-    //   const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
-    //   scene.add(light);
-    // }
-
-    // {
-    //   const color = 0xFFFFFF;
-    //   const intensity = 2;
-    //   const light = new THREE.DirectionalLight(color, intensity);
-    //   light.position.set(5, 10, 2);
-    //   scene.add(light);
-    //   scene.add(light.target);
-    // }
 
     {
       let directionalLight = new THREE.DirectionalLight(0xffffff, 3);
@@ -121,7 +130,7 @@ export class RenderComponent implements OnInit {
     }
 
     {
-      const modelName = 'assets/birchtree/scene.gltf';
+      const modelName = uri;
       console.log('model ==> ' + modelName);
       const gltfLoader = new THREE.GLTFLoader();
       gltfLoader.load(modelName, (gltf) => {
@@ -171,49 +180,13 @@ export class RenderComponent implements OnInit {
     requestAnimationFrame(render);
   }
 
-  InitRender() {
-    this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xdddddd);
-    this.camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 5000);
-    this.camera.rotation.y = 45 / 180 * Math.PI;
-    this.camera.position.x = 800;
-    this.camera.position.y = 100;
-    this.camera.position.z = 1000;
-    let controls = new THREE.OrbitControls(this.camera);
-    controls.addEventListener('change', this.renderer);
-    let hlight = new THREE.AmbientLight(0x404040, 100);
-    this.scene.add(hlight);
-    let directionalLight = new THREE.DirectionalLight(0xffffff, 100);
-    directionalLight.position.set(0, 1, 0);
-    directionalLight.castShadow = true;
-    this.scene.add(directionalLight);
-    let light = new THREE.PointLight(0xc4c4c4, 10);
-    light.position.set(0, 300, 500);
-    this.scene.add(light);
-    let light2 = new THREE.PointLight(0xc4c4c4, 10);
-    light2.position.set(500, 100, 0);
-    this.scene.add(light2);
-    let light3 = new THREE.PointLight(0xc4c4c4, 10);
-    light3.position.set(0, 100, -500);
-    this.scene.add(light3);
-    let light4 = new THREE.PointLight(0xc4c4c4, 10);
-    light4.position.set(-500, 300, 500);
-    this.scene.add(light4);
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
-    let loader = new THREE.GLTFLoader();
-    loader.load('assets/datsun/scene.gltf', (gltf) => {
-      let car = gltf.scene.children[0];
-      car.scale.set(0.5, 0.5, 0.5);
-      this.scene.add(gltf.scene);
-      this.animate();
-    });
-  }
-
   animate() {
     this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(this.animate);
+  }
+
+  selectModel(i) {
+    this.main(this.models[i].uri);
   }
 
 }

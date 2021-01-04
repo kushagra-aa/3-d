@@ -1,3 +1,17 @@
-<canvas id="here" style="height: 34.7rem;">
+<div class="col-md-12 mx-auto">
+    <nb-card>
+        <nb-card-body>
+            <canvas id="here" style="width: 100%;height: 80vh;"></canvas>
+        </nb-card-body>
+    </nb-card>
 
-</canvas>
+    <nb-card>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-2" *ngFor="let model of models;let i = index" (click)="selectModel(i)">
+                    <div class="thumb" [ngStyle]="{ 'background-image': 'url(' + model.image + ')'}"></div>
+                </div>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
