@@ -5,7 +5,9 @@
   "projects": {
     "Three-D": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+          
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +27,7 @@
             ],
             "styles": [
               "./node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "src/assets/OrbitControls.js"
@@ -91,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }

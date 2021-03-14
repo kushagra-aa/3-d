@@ -12,3 +12,4 @@ server.listen(port, () => {
 app.use(cors());
 app.use(parser.json());
 app.use('/user', userRouter);
+// app.use(express.static('./uploads'))
