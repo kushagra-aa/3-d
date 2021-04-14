@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
           icon: 'success'
 
         })
-        this.router.navigate(['/login']);
+        this.router.navigate(['/app/signin']);
 
       });
     }

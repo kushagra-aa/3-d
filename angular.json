@@ -5,9 +5,7 @@
   "projects": {
     "Three-D": {
       "projectType": "application",
-      "schematics": {
-          
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -26,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/styles.scss"
             ],
@@ -93,6 +92,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
