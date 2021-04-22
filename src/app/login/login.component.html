@@ -1,44 +1,57 @@
-<nb-card-header>Login</nb-card-header>
-<nb-card-body class="example-items-col m-2">
-  <nb-form-field class="p-2">
-    <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
-    <input
-      type="email"
-      nbInput
-      halfWidth
-      fieldSize="small"
-      placeholder="Email"
-    />
-  </nb-form-field>
-  <nb-form-field class="p-2">
-    <nb-icon nbPrefix icon="lock-outline" pack="eva"></nb-icon>
-    <input
-      [type]="getInputType()"
-      placeholder="Password"
-      fieldSize="small"
-      nbInput
-    />
-    <button nbSuffix nbButton ghost (click)="toggleShowPassword()">
-      <nb-icon
-        [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
-        pack="eva"
-        [attr.aria-label]="showPassword ? 'hide password' : 'show password'"
-      >
-      </nb-icon>
-    </button>
-  </nb-form-field>
-  <!-- (click)="onClick()" -->
-  <input
-    class="pull-right m-2 p-2"
-    nbButton
-    type="submit"
-    hero
-    status="warning"
-    value="Signin"
-  />
-</nb-card-body>
-<nb-card-footer>
-  <button class="w-85" nbButton status="control" [routerLink]="['/app/signup']">
-    Not a member??
-  </button>
-</nb-card-footer>
+<div class="container">
+  <div class="container mt-5">
+    <div
+      class="card mx-auto shadow-lg text-center bg-dark text-light w-50"
+      style="margin: 10rem"
+    >
+      <div class="row">
+        <div class="col-md">
+          <div class="card-body">
+            <i class="fas fa-envelope fa-2x"></i>
+            <h2>LOGIN</h2>
+            <hr />
+            <form
+              class="mt-5"
+              (ngSubmit)="validateUser(email.value, password.value)"
+            >
+              <div class="input-group p-2">
+                <span class="input-group-addon"
+                  ><i class="glyphicon glyphicon-user"></i
+                ></span>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="email"
+                  #email
+                />
+              </div>
+              <div class="input-group p-2">
+                <span class="input-group-addon"
+                  ><i class="glyphicon glyphicon-lock"></i
+                ></span>
+                <input
+                  id="password"
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Password"
+                  #password
+                />
+              </div>
+              <button class="btn btn-info btn-block">Login</button>
+            </form>
+            <div class="row text-center mt-5">
+              <div class="col-md"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="w-85" nbButton status="control" [routerLink]="['/app/signup']">
+  Not a member??
+</button>
