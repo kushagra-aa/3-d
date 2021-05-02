@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/gltfloader.js'
+import { OrbitControls } from 'three/examples/jsm/controls/orbitcontrols.js'
+import * as dat from 'dat.gui';
 
 @Component({
   selector: 'app-render',
@@ -22,17 +26,7 @@ export class RenderComponent implements OnInit {
       name: 'Mountain',
       uri: 'assets/mountain/scene.gltf',
       image: 'assets/mountain/image.jpg'
-    },
-    {
-      name: 'Birch Tree',
-      uri: 'assets/birchtree/scene.gltf',
-      image: 'assets/birchtree/image.jpg'
-    },
-    {
-      name: 'Birch Tree',
-      uri: 'assets/birchtree/scene.gltf',
-      image: 'assets/birchtree/image.jpg'
-    },
+    }
   ]
 
   scene;
@@ -45,7 +39,7 @@ export class RenderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.selectModel(0);
+    this.selectModel(2);
   }
 
   main(uri) {
@@ -55,12 +49,12 @@ export class RenderComponent implements OnInit {
     const camera = new THREE.PerspectiveCamera(this.fov, this.aspect, this.near, this.far);
     camera.position.set(0, 10, 20);
 
-    const controls = new THREE.OrbitControls(camera, canvas);
+    const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 5, 0);
     controls.update();
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#00FFFFFF');
+    scene.background = new THREE.Color('#FFFFFF');
 
     {
       const planeSize = 40;
@@ -132,7 +126,7 @@ export class RenderComponent implements OnInit {
     {
       const modelName = uri;
       console.log('model ==> ' + modelName);
-      const gltfLoader = new THREE.GLTFLoader();
+      const gltfLoader = new GLTFLoader();
       gltfLoader.load(modelName, (gltf) => {
         const root = gltf.scene;
         scene.add(root);

@@ -29,9 +29,11 @@
     "@nebular/eva-icons": "6.2.1",
     "@nebular/theme": "6.2.1",
     "@sweetalert2/ngx-sweetalert2": "^8.1.1",
+    "dat.gui": "^0.7.7",
     "eva-icons": "^1.1.2",
     "rxjs": "^6.6.7",
     "sweetalert2": "^10.16.0",
+    "three": "^0.127.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.10.2"
   },
